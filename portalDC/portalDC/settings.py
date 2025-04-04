@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -137,3 +137,10 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 # Optional: Set timezone if needed
 CELERY_TIMEZONE = 'UTC' # Or your project's timezone
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles') # Store uploads in a 'mediafiles' directory
+
+# URL that handles the media served from MEDIA_ROOT. Make sure it doesn't clash with app URLs.
+# It must end in a slash if non-empty.
+MEDIA_URL = '/media/'

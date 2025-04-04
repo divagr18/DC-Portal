@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Assignment</title>
+    <style>
+        .errorlist { color: red; list-style-type: none; padding-left: 0; }
+    </style>
+</head>
+<body>
+    <h1>Submit Your Assignment</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {# Important for security #}
+
+        {{ form.non_field_errors }} {# Display general form errors #}
+
+        <p>
+            {{ form.student_name.label_tag }}<br>
+            {{ form.student_name }}
+            {{ form.student_name.errors }}
+        </p>
+        <p>
+            {{ form.uploaded_file.label_tag }} (PDF only)<br>
+            {{ form.uploaded_file }}
+            {{ form.uploaded_file.errors }}
+        </p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if success_message %}
+        <p style="color: green;">{{ success_message }}</p>
+    {% endif %}
+
+</body>
+</html>

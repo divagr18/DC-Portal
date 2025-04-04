@@ -1,8 +1,13 @@
-# portalDC/urls.py
 from django.contrib import admin
-from django.urls import path, include # Make sure include is imported
+from django.urls import path, include
+from django.conf import settings # Import settings
+from django.conf.urls.static import static # Import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('submissions/', include('submissions.urls')), # Include submissions app URLs
+    path('submissions/', include('submissions.urls')),
 ]
+
+# Add this block for serving media files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
