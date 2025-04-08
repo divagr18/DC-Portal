@@ -1,0 +1,43 @@
+# Caddyfile using JSON logging
+
+# Listen on port 80 for HTTP requests to localhost
+http://localhost:80 {
+
+    # --- Logging Configuration ---
+    # Log requests to standard output (console) using JSON format
+    log {
+        output stdout
+        format json  # Use the standard JSON encoder
+        level  INFO  # Optional: set log level
+    }
+
+    # --- Reverse Proxy & Load Balancing ---
+    reverse_proxy http://127.0.0.1:8000 http://127.0.0.1:8001 http://127.0.0.1:8002 {
+         # Standard headers to send to the backend
+         header_up Host {host}
+         header_up X-Real-IP {remote_ip}
+         header_up X-Forwarded-For {remote_ip}
+         header_up X-Forwarded-Proto {scheme}
+    }
+
+    # --- Serve Static Files ---
+    handle_path /static/* {
+        # Use forward slashes for paths
+        root * D:/portal/portalDC/staticfiles
+        file_server
+    }
+
+    # --- Serve Media Files ---
+    handle_path /media/* {
+        # Use forward slashes for paths
+        root * D:/portal/portalDC/mediafiles
+        file_server
+    }
+
+    # --- Request Settings ---
+    # Set max upload size (e.g., 100 MB)
+    request_body * 100m
+
+} # End of the http://localhost:80 block
+
+# End of Caddyfile using JSON logging

@@ -15,7 +15,7 @@ def submit_assignment_view(request):
             submission_instance = form.save(commit=False) # Don't commit yet if you need to modify
             submission_instance.status = 'PENDING' # Set initial status
             submission_instance.save() # Now save to DB, getting the ID
-
+            print("Got file!")
             # Get necessary data for the task
             submission_id = submission_instance.id
             student_name = submission_instance.student_name

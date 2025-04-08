@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+import sys
+import logging
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +29,12 @@ SECRET_KEY = 'django-insecure-343#dtkd@t0c8jr9n-k^k$trbbr8%192x^yv!r4jc6_q(j61ud
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGGING_CONFIG = None # Disable Django's default logging config
+logging.basicConfig(
+    level=logging.INFO, # Log INFO level and above
+    format='%(asctime)s %(levelname)-8s %(name)-15s %(message)s',
+    stream=sys.stdout, # Force output to standard out
+)
 
 # Application definition
 
@@ -144,3 +152,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles') # Store uploads in a 'mediafil
 # URL that handles the media served from MEDIA_ROOT. Make sure it doesn't clash with app URLs.
 # It must end in a slash if non-empty.
 MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

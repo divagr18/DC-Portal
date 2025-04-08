@@ -1,0 +1,122 @@
+# --- Python ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+# Usually pyinstaller files are emitted by executing pyinstaller, so best to keep .spec files.
+# *.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Environments (Even if not using one now, good practice!)
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Django ---
+# Default SQLite database
+db.sqlite3
+db.sqlite3-journal
+
+# Log files
+*.log
+logs/
+staticfiles/
+
+# Collected static files directory (STATIC_ROOT)
+staticfiles/ # Or your specific STATIC_ROOT name if different
+
+# User-uploaded media files directory (MEDIA_ROOT)
+mediafiles/ # Or your specific MEDIA_ROOT name if different
+
+# Celery / Task Queues
+celerybeat-schedule
+*.pid # Process ID files
+
+# --- Caddy ---
+# Downloaded Caddy executable (should not be in version control)
+# Caddy autosave files
+*.autosave
+
+# --- IDEs / Editors ---
+# VS Code
+.vscode/
+# PyCharm
+.idea/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+# Atom
+.atom/
+# Vim
+*.swp
+*.swo
+
+# --- Operating System Files ---
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+
+# --- Other ---
+# If you create local settings overrides
+local_settings.py
